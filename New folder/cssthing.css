@@ -1,0 +1,48 @@
+h1 {
+	color: white;
+	text-align: center;
+}
+h3 {
+	background-color: white;
+	margin-right: 70%;
+	color: green;
+	font-family: "Trebuchet MS";
+}
+h2 {
+	color: Aquamarine;
+	text-align: center;
+
+	font-family: "Trebuchet MS";
+}
+h5 {
+	color: aqua;
+	background-color: white;
+	
+	center-left: 50%; 
+	font-family: "Trebuchet MS";
+	text-align: center;
+}
+img {
+    display: block;
+    margin: 0 auto;
+
+}
+div {
+	text-align: center;
+	color: Aqua;
+}
+html {
+	
+   background-image: url("hope4.jpg");
+}
+ul {
+	color: black;
+	font-weight: Bold;
+	background-color: aqua;
+	margin-right: 80%;
+}
+a{
+	color: black;
+	font-size: 250%;
+	text-align: center;
+}

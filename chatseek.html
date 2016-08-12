@@ -1,0 +1,106 @@
+<!DOCTYPE>
+<html>
+<head>
+<script type="text/javascript">
+   (function(d, m){var s, h;       
+   s = document.createElement("script");
+   s.type = "text/javascript";
+   s.async=true;
+   s.src="https://apps.applozic.com/sidebox.app";
+   h=document.getElementsByTagName('head')[0];
+   h.appendChild(s);
+   window.applozic=m;
+   m.init=function(t){m._globals=t;}})(document, window.applozic || {});
+</script>
+</head>
+<script type="text/javascript">
+  window.applozic.init({
+    appId: 	2dde57dcf4ce2f74f5e51f8a4768c4673,      //Get your application key from https://www.applozic.com
+    userId: userId,                     //Logged in user's id, a unique identifier for user
+    userName: username,                 //User's display name
+    imageLink : '',                     //User's profile picture url
+    email : '',                         //optional
+    contactNumber: '',                  //optional, pass with internationl code eg: +16508352160
+    desktopNotification: true,
+    notificationIconLink: 'https://www.applozic.com/favicon.ico',    //Icon to show in desktop notification, replace with your icon
+    authenticationTypeId: '1',          //1 for password verification from Applozic server and 0 for access Token verification from your server
+    accessToken: '',                    //optional, leave it blank for testing purpose, read this if you want to add additional security by verifying password from your server https://www.applozic.com/docs/configuration.html#access-token-url
+    onInit : function(response) {
+       if (response === "success") {
+          // login successful, perform your actions if any, for example: load contacts, getting unread message count, etc
+       } else {
+          // error in user login/register (you can hide chat button or refresh page)
+       }
+   },
+   contactDisplayName: function(otherUserId) {
+         //return the display name of the user from your application code based on userId.
+         return "";
+   },
+   contactDisplayImage: function(otherUserId) {
+         //return the display image url of the user from your application code based on userId.
+         return "";
+   }
+    $applozic.fn.applozic('loadTab', '');
+  });
+</script>
+ 
+    <a href="#" class="applozic-launcher" data-mck-id="PUT_OTHER_USERID_HERE" data-mck-name="PUT_OTHER_USER_DISPLAY_NAME_HERE">CHAT BUTTON</a>
+	
+	 <script>
+	 $applozic.fn.applozic('loadContacts', {"contacts": [{"userId": "USER_1", "displayName": "Devashish",
+                          "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
+                        {"userId": "USER_2", "displayName": "Adarsh",
+                          "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"},
+                        {"userId": "USER_3", "displayName": "Shanki",
+                          "imageLink": "https://www.applozic.com/resources/images/applozic_icon.png"}
+                        ]
+         });
+		  $applozic.fn.applozic('loadGroupTab', groupId);  // group Id returned in response to group create api
+		   $applozic.fn.applozic('loadGroupTabByClientGroupId',{'clientGroupId':clientGroupId});
+		   $applozic.fn.applozic('initGroupTab', {'groupName' : groupName,   // required
+                                       'type' : 1,                // 1 for private , 2 for public (required)
+                                       'clientGroupId' : '',      // optional
+                                       'users': [{userId:userId1, displayName:''},
+                                                 {userId:userId2, displayName:''}
+                                                ]});
+			$applozic.fn.applozic('addGroupMember',{'groupId': groupId,
+                                        'clientGroupId': clientGroupId, //use either groupId or clientGroupId
+                                        'userId': userIdToAdd,
+                                        'callback': function(response) {console.log(response);}
+                                        });
+										
+			$applozic.fn.applozic('removeGroupMember',{'groupId': groupId,
+                                          'clientGroupId' : clientGroupId, //use either groupId or clientGroupId
+                                          'userId': userIdToRemove,         
+                                          'callback': function(response) {console.log(response);}
+                                          });
+		$applozic.fn.applozic('leaveGroup', {'groupId' : groupId,
+                                     'clientGroupId' : clientGroupId, //use either groupId or clientGroupId
+                                     'callback' :function(response){console.log(response);}
+                                     });
+	$applozic.fn.applozic('updateGroupInfo', {'groupId' : groupId
+                                     'clientGroupId' : clientGroupId, //use either groupId or clientGroupId,
+                                     'name' : groupName, // optional
+                                     'imageUrl' : '',  //optional
+                                     'callback' : function(response){console.log(response);}});
+	
+	
+  window.applozic.init({
+    appId: applozicApplicationKey,      //Get your application key from https://www.applozic.com
+    userId: userId,                     //Logged in user's id, a unique identifier for user
+    userName: username,                 //User's display name
+    topicBox: true,
+    getTopicDetail: function(topicId) {
+            //Based on topicId, return the following details from your application
+            return {'title': 'topic-title',      // Product title
+                        'subtitle': 'sub-title',     // Product subTitle or Product Id
+                        'link' :'image-link',        // Product image link
+                        'key1':'key1' ,              // Small text anything like Qty (Optional)
+                        'value1':'value1',           // Value of key1 ex-10 (number of quantity) Optional
+                        'key2': 'key2',              // Small text anything like MRP (product price) (Optional)
+                        'value2':'value2'            // Value of key2 ex-$100  (Optional)
+                     };
+            }
+  });
+  
+   <a href="#" class="applozic-wt-launcher" data-mck-id="PUT_USERID_HERE" data-mck-name="PUT_DISPLAYNAME_HERE" data-mck-topicid="PUT_TOPICID_HERE">CHAT ON TOPIC</a>
